@@ -1,0 +1,21 @@
+services:
+  - type: worker
+    name: portals-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    autoDeploy: true
+    envVars:
+      - key: BOT_TOKEN
+        sync: false
+      - key: DATABASE_URL
+        sync: false
+      - key: OWNER_ID
+        value: "8043083450"
+      - key: REPO_CHANNEL_ID
+        sync: false
+      - key: LINK_TTL_SECONDS
+        value: "180"
+      - key: DELETE_AFTER_SECONDS
+        value: "600"
